@@ -108,6 +108,34 @@ const pAequorFactory = (specimenNum, dna) => {
           }
     }, // step 6 Checking the survaival of the p.aequor if C or G is 60%
 
+
+    // step 9 complementary strands of the dna
+    ComplementaryStrand() {
+      let complementaryDNA = [];
+      this.dna.forEach(eachDNA => {
+        switch (eachDNA) {
+          case 'A':
+            complementaryDNA.push('T');
+            break;
+
+          case 'T':
+            complementaryDNA.push('A');
+            break;
+
+          case 'c':
+            complementaryDNA.push('G');
+            break;
+
+          case 'G':
+            complementaryDNA.push('C');
+            break;
+        }
+      })
+      return complementaryDNA;
+    }
+
+
+
   } // return object ends here
 
   
@@ -136,20 +164,28 @@ const firstpAequorFactory = pAequorFactory(2222,mockUpStrand());
 
 // check step 6
 firstpAequorFactory.willLikelySurvive();
-console.log(firstpAequorFactory.willLikelySurvive());
+// console.log(firstpAequorFactory.willLikelySurvive());
 
 
 // console.log(firstpAequorFactory);
 
+
+
+// step 9
+console.log(firstpAequorFactory.ComplementaryStrand());
+console.log(firstpAequorFactory.dna);
+
+
+
 // step 7 function to store only survived pAequor ie willLikelySurvive must return true
 
-const survivedpAequor = [];
-for (let i = 1; survivedpAequor.length < 30; i++) {
-  let arraypAequorFactory = pAequorFactory(i,mockUpStrand());
-  if (arraypAequorFactory.willLikelySurvive()) {
-    survivedpAequor.push(arraypAequorFactory);
-  }
+// const survivedpAequor = [];
+// for (let i = 1; survivedpAequor.length < 30; i++) {
+//   let arraypAequorFactory = pAequorFactory(i,mockUpStrand());
+//   if (arraypAequorFactory.willLikelySurvive()) {
+//     survivedpAequor.push(arraypAequorFactory);
+//   }
 
-}
-console.log(survivedpAequor);
-console.log(survivedpAequor.length);
+// }
+// console.log(survivedpAequor);
+// console.log(survivedpAequor.length);
